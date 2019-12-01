@@ -1,58 +1,89 @@
 # MultiChoice
-MultiChoice is a framework for generating formatted user input queries on the terminal. Especially multiple choice questions.
+MultiChoice is a framework for generating formatted user input queries on the terminal.
 
-## Class: MultiChoice
-`MultiChoice(query, options, required=True, strict=True)`
 
-MultiChoice: Generates multiple choice questions.
+### Table of Contents
+- API Documentation
+    - Question: Fill-in-the-blank
+    - TrueFalse: True or False
+    - MultiChoice: Multiple Choice
+- Developer Log
 
-`__call__(self)`
-- Return: String. Returns the user selection.
 
-`__init__(self, query, options, required=True, strict=True)`
-- Param query: String.
-    Question for the user.
-- Param options: Tuple of Strings.
-    Options presented to the user as a numbered sequence.
-    The user may enter an answer as text or one of the numbers.
-- Param required: Bool. Default=True:
-    True: Repeats question until answered.
-    False: Accepts null input as an empty string.
-- Param strict: Bool. Default=True
-    True: Answer must be in the options tuple. Not case-sensitive.
-    False: Accepts any answer.
+## API Documentation
 
- 
-## Class: Question
-`Question(query, required=True)`
+### Class: Question
+`Question(query)`
 
 Question: Generates fill in the blank style questions.
 
 `__call__(self)`
 - Return: String. Returns the user selection.
 
-`__init__(self, query, required=True)`
+`__init__(self, query, required=True, cursor='>>>')`
 - Param query: String.
     Question for the user.
-- Param required: Bool. Default=True:
+- Param required: Optional Bool. Default=True
     True: Repeats question until answered.
     False: Accepts null input as an empty string.
+- Param cursor: Optional String. Default='>>>' 
+    Indicates user input field.
 
 
-## Class: TrueFalse
-`TrueFalse(query, required=True, strict=True)`
+### Class: TrueFalse
+`TrueFalse(query)`
 
 TrueFalse: Generates True or False style questions.
 
 `__call__(self)`
 - Return: String. Returns the user selection.
 
-`__init__(self, query, required=True, strict=True)`
+`__init__(self, query, required=True, strict=True, cursor='>>>')`
 - Param query: String.
     Question for the user.
-- Param required: Bool. Default=True:
+- Param required: Optional Bool. Default=True
     True: Repeats question until answered.
     False: Accepts null input as an empty string.
-- Param strict: Bool. Default=True
+- Param strict: Optional Bool. Default=True
     True: Answer must be in the options tuple. Not case-sensitive.
     False: Accepts any answer.
+- Param cursor: Optional String. Default='>>>' 
+    Indicates user input field.
+
+
+### Class: MultiChoice
+`MultiChoice(query, options)`
+
+MultiChoice: Generates multiple choice style questions.
+
+`__call__(self)`
+- Return: String. Returns the user selection.
+
+`__init__(self, query, options, required=True, strict=True, cursor='>>>')`
+- Param query: String.
+    Question for the user.
+- Param options: Tuple of Strings.
+    Options presented to the user as a numbered sequence. 
+    Numbers are generated automatically.
+    The user may enter an answer as text or one of the numbers.
+- Param required: Optional Bool. Default=True
+    True: Repeats question until answered.
+    False: Accepts null input as an empty string.
+- Param strict: Optional Bool. Default=True
+    True: Answer must be in the options tuple. Not case-sensitive.
+    False: Accepts any answer.
+- Param cursor: Optional String. Default='>>>' 
+    Indicates user input field.
+
+
+## Developer Log
+
+### MultiChoice v0.3.1
+- Added custom cursor option.
+- Documentation update
+
+### MultiChoice v0.2 (internal)
+- API update
+
+### MultiChoice v0.1
+- Initial Project
