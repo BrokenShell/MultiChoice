@@ -1,18 +1,17 @@
 # MultiChoice
-MultiChoice is a framework for generating formatted user input questionnaires.
-
+MultiChoice is a framework for generating formatted user input queries on the terminal. Especially multiple choice questions.
 
 ## Class: MultiChoice
-`MultiChoice(prompt, options, required=True, strict=True)`
+`MultiChoice(query, options, required=True, strict=True)`
 
-Generates multiple choice questions.
+MultiChoice: Generates multiple choice questions.
 
 `__call__(self)`
 - Return: String. Returns the user selection.
 
-`__init__(self, prompt, options, required=True, strict=True)`
-- Param prompt: String.
-    Question, query or prompt for the user.
+`__init__(self, query, options, required=True, strict=True)`
+- Param query: String.
+    Question for the user.
 - Param options: Tuple of Strings.
     Options presented to the user as a numbered sequence.
     The user may enter an answer as text or one of the numbers.
@@ -24,33 +23,33 @@ Generates multiple choice questions.
     False: Accepts any answer.
 
  
-## Class: FillBlank
-`FillBlank(prompt, required=True)`
+## Class: Question
+`Question(query, required=True)`
 
-FillBlank: generates fill-in-the-blank questions.
+Question: Generates fill in the blank style questions.
 
 `__call__(self)`
 - Return: String. Returns the user selection.
 
-`__init__(self, prompt, required=True)`
-- Param prompt: String.
-    Question, query or prompt for the user.
+`__init__(self, query, required=True)`
+- Param query: String.
+    Question for the user.
 - Param required: Bool. Default=True:
     True: Repeats question until answered.
     False: Accepts null input as an empty string.
 
 
 ## Class: TrueFalse
-`TrueFalse(prompt, required=True, strict=True)`
+`TrueFalse(query, required=True, strict=True)`
 
-TrueFalse generates True or False questions.
+TrueFalse: Generates True or False style questions.
 
 `__call__(self)`
 - Return: String. Returns the user selection.
 
-`__init__(self, prompt, required=True, strict=True)`
-- Param prompt: String.
-    Question, query or prompt for the user.
+`__init__(self, query, required=True, strict=True)`
+- Param query: String.
+    Question for the user.
 - Param required: Bool. Default=True:
     True: Repeats question until answered.
     False: Accepts null input as an empty string.

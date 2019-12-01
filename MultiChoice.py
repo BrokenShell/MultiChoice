@@ -1,19 +1,20 @@
 """ MultiChoice
-MultiChoice is a framework for generating formatted user input questions.
+MultiChoice is a framework for generating formatted user input queries.
+Especially multiple choice questions.
 
 Author: Robert Sharp
+Email: webmaster@sharpdesigndigital.com
 Date: November 30, 2019
 """
 
 
 class MultiChoice:
-    """ MultiChoice: generates multiple choice questions. """
-    cursor = ":> "
+    """ MultiChoice: generates multiple choice style questions. """
 
-    def __init__(self, prompt, options, required=True, strict=True):
+    def __init__(self, query, options, required=True, strict=True, cursor=">>>"):
         """ Multiple Choice
-        :param prompt: String.
-            Question, query or prompt for the user.
+        :param query: String.
+            Question for the user.
         :param options: Tuple of Strings.
             Options presented to the user as a numbered sequence.
             The user may enter an answer as text or one of the numbers.
@@ -22,8 +23,11 @@ class MultiChoice:
             False: Accepts null input as an empty string.
         :param strict: Bool. Default=True
             True: Answer must be in the options tuple. Not case-sensitive.
-            False: Accepts any answer. """
-        self.prompt = prompt
+            False: Accepts any answer.
+        :param cursor: String. Default='>>>' Indicates user input field.
+        """
+        self.cursor = cursor + ' '
+        self.prompt = query
         self.options = options
         self.required = required
         self.strict = strict
@@ -56,32 +60,39 @@ class MultiChoice:
             return self()
 
 
-class FillBlank(MultiChoice):
-    """ FillBlank: generates fill-in-the-blank questions. """
+class Question(MultiChoice):
+    """ Question: generates fill in the blank style questions.
+    Same as MultiChoice(query, options=(), strict=False) """
 
-    def __init__(self, prompt, required=True):
+    def __init__(self, query, required=True, cursor=">>>"):
         """ Fill in the Blank
-        :param prompt: String.
-            Question, query or prompt for the user.
+        :param query: String.
+            Question for the user.
         :param required: Bool. Default=True:
             True: Repeats question until answered.
-            False: Accepts null input as an empty string. """
+            False: Accepts null input as an empty string.
+        :param cursor: String. Default='>>>' Indicates user input field.
+        """
         super().__init__(
-            prompt, options=(), required=required, strict=False)
+            query, options=(), required=required, strict=False, cursor=cursor)
 
 
 class TrueFalse(MultiChoice):
-    """ TrueFalse generates True or False questions. """
+    """ TrueFalse generates True or False style questions.
+    Same as MultiChoice(query, options=("True", "False")) """
 
-    def __init__(self, prompt, required=True, strict=True):
+    def __init__(self, query, required=True, strict=True, cursor=">>>"):
         """ True or False
-        :param prompt: String.
-            Question, query or prompt for the user.
+        :param query: String.
+            Question for the user.
         :param required: Bool. Default=True:
             True: Repeats question until answered.
             False: Accepts null input as an empty string.
         :param strict: Bool. Default=True
             True: Answer must be in the options tuple. Not case-sensitive.
-            False: Accepts any answer. """
+            False: Accepts any answer.
+        :param cursor: String. Default='>>>' Indicates user input field.
+        """
         super().__init__(
-            prompt, options=("True", "False"), required=required, strict=strict)
+            query, options=("True", "False"),
+            required=required, strict=strict, cursor=cursor)
