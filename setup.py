@@ -7,10 +7,10 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="MultiChoice",
-    module="MultiChoice",
+    py_modules=["MultiChoice"],
     author="Robert Sharp",
     author_email="webmaster@sharpdesigndigital.com",
-    version="0.3.3",
+    version="0.3.4",
     description="Framework for generating formatted user input questions.",
     long_description=long_description,
     long_description_content_type="text/markdown",

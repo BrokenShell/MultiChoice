@@ -135,6 +135,9 @@ Blue
 
 ## Developer Log
 
+### MultiChoice v0.3.4
+- Installer Bug Fixed
+
 ### MultiChoice v0.3.3
 - Comments Updated
 
