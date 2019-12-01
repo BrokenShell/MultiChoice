@@ -1,18 +1,12 @@
 """ MultiChoice
-MultiChoice is a framework for generating formatted user input queries.
-Especially multiple choice questions.
-
-Author: Robert Sharp
-Email: webmaster@sharpdesigndigital.com
-Date: November 30, 2019
-"""
+A framework for generating well formatted user input queries in the terminal. """
 
 
 class MultiChoice:
     """ MultiChoice: generates multiple choice style questions. """
 
     def __init__(self, query, options, required=True, strict=True, cursor=">>>"):
-        """ Multiple Choice
+        """ Multiple Choice Questions
         :param query: String.
             Question for the user.
         :param options: Tuple of Strings.
@@ -45,6 +39,7 @@ class MultiChoice:
 
     def __call__(self):
         """
+        Gets the answer from the user.
         :return: String. Returns the user selection.
         """
         selection = self._get_answer()
@@ -61,11 +56,10 @@ class MultiChoice:
 
 
 class Question(MultiChoice):
-    """ Question: generates fill in the blank style questions.
-    Same as MultiChoice(query, options=(), strict=False) """
+    """ Question: generates fill in the blank style questions.  """
 
     def __init__(self, query, required=True, cursor=">>>"):
-        """ Fill in the Blank
+        """ Fill in the Blank Questions
         :param query: String.
             Question for the user.
         :param required: Bool. Default=True:
@@ -78,11 +72,10 @@ class Question(MultiChoice):
 
 
 class TrueFalse(MultiChoice):
-    """ TrueFalse generates True or False style questions.
-    Same as MultiChoice(query, options=("True", "False")) """
+    """ TrueFalse generates True or False style questions. """
 
     def __init__(self, query, required=True, strict=True, cursor=">>>"):
-        """ True or False
+        """ True or False Questions
         :param query: String.
             Question for the user.
         :param required: Bool. Default=True:

@@ -1,5 +1,5 @@
 # MultiChoice
-MultiChoice is a framework for generating formatted user input queries on the terminal.
+A framework for generating well formatted user input queries in the terminal.
 
 
 ### Table of Contents
@@ -39,8 +39,6 @@ user = get_name()                          # get input
 print(user)                                # print
 ```
 ```
-What is your name?
->>> 
 What is your name?
 >>> Robert
 Robert
@@ -137,15 +135,17 @@ Blue
 
 ## Developer Log
 
+### MultiChoice v0.3.3
+- Comments Updated
+
 ### MultiChoice v0.3.2
-- Examples added to README.md
+- Examples Added
 
 ### MultiChoice v0.3.1
-- Added custom cursor option.
-- Documentation update
+- Added Cursor Option
 
 ### MultiChoice v0.2 (internal)
-- API update
+- API Updated
 
 ### MultiChoice v0.1
-- Initial Project
+- Initial Upload
