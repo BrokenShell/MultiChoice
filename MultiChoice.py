@@ -74,18 +74,15 @@ class Question(MultiChoice):
 class TrueFalse(MultiChoice):
     """ TrueFalse generates True or False style questions. """
 
-    def __init__(self, query, required=True, strict=True, cursor=">>>"):
+    def __init__(self, query, required=True, cursor=">>>"):
         """ True or False Questions
         :param query: String.
             Question for the user.
         :param required: Bool. Default=True:
             True: Repeats question until answered.
             False: Accepts null input as an empty string.
-        :param strict: Bool. Default=True
-            True: Answer must be in the options tuple. Not case-sensitive.
-            False: Accepts any answer.
         :param cursor: String. Default='>>>' Indicates user input field.
         """
         super().__init__(
             query, options=("True", "False"),
-            required=required, strict=strict, cursor=cursor)
+            required=required, strict=True, cursor=cursor)

@@ -10,7 +10,7 @@ setuptools.setup(
     py_modules=["MultiChoice"],
     author="Robert Sharp",
     author_email="webmaster@sharpdesigndigital.com",
-    version="0.3.4",
+    version="0.3.5",
     description="Framework for generating formatted user input questions.",
     long_description=long_description,
     long_description_content_type="text/markdown",

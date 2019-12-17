@@ -52,15 +52,12 @@ TrueFalse: Generates True or False style questions.
 `__call__(self)`
 - Return: String. Returns the user selection.
 
-`__init__(self, query, required=True, strict=True, cursor='>>>')`
+`__init__(self, query, required=True, cursor='>>>')`
 - Param query: String.
     - Question for the user.
 - Param required: Optional Bool. Default=True
     - True: Repeats question until answered.
     - False: Accepts null input as an empty string.
-- Param strict: Optional Bool. Default=True
-    - True: Answer must be in the options tuple. Not case-sensitive.
-    - False: Accepts any answer.
 - Param cursor: Optional String. Default='>>>' 
     - Indicates user input field.
 
@@ -134,6 +131,8 @@ Blue
 
 
 ## Developer Log
+### MultiChoice v0.3.5
+- TrueFalse update, removed strict option - T/F is always strict.
 
 ### MultiChoice v0.3.4
 - Installer Bug Fixed
